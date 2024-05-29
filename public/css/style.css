@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 10px;
+}
+html {
+  font-size: 10px;
+}
+.wrapper {
+  width: 100%;
+  height: 500vh;
+}
+
+/* main - Header */
+
+/* main - Header - top */
+
+.main-header-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+}
+.header-top {
+  height: 100%;
+}
+.header-top-container {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  border-bottom: 1px solid #f0e9e9;
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.row {
+  height: auto;
+}
+.header-top-infor-item {
+  display: flex;
+  margin-right: 1.5rem;
+}
+.header-top-infor-item i {
+  margin-right: 1rem;
+  color: orangered;
+}
+.header-top-infor-item span {
+  font-size: 1.1rem;
+}
+.header-top-address {
+  color: blue;
+  font-size: 1.1rem;
+}
+/* main - Header - bottom */
+.header-bottom-container {
+  width: 100%;
+}
+.header-bottom-container div {
+  height: 7rem;
+}
+.header-bottom-infor-item > .logo-home {
+  height: 80%;
+  width: 70%;
+  padding: 5% 0px;
+}
+
+.header-bottom-infor-item ul {
+  height: 100%;
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 0px;
+}
+.header-bottom-infor-item ul li {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+}
+
+.home-menu ul li a {
+  color: black;
+  text-decoration: none;
+  border: 0.5px solid #ffffff;
+  padding: 0.5rem 0.5rem;
+  border-radius: 3.5rem;
+  text-transform: uppercase;
+  /* transition: 0.5s; */
+}
+ul li a:hover {
+  color: #ffffff;
+  border: 0.5px solid #ffffff;
+  background-color: black;
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+@keyframes background-expand {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 20%;
+  }
+}
+.header-bottom-menu-center {
+  margin: 0 3rem;
+}
+.menu-search {
+  position: relative;
+  margin-right: 1rem;
+}
+.input-search {
+  width: 30rem;
+
+  border: 1px solid #ffffff;
+  background-color: #e8e8e8;
+  border-radius: 2.5rem;
+  height: 4rem;
+  padding-left: 0.5rem;
+}
+.btn-search {
+  top: 29%;
+  right: 10px;
+  position: absolute;
+  color: brown;
+  font-size: 2rem;
+}
+.menu-cart i {
+  font-size: 3rem;
+}
+.menu-list {
+  margin-left: 2rem;
+}
+.menu-list button {
+  display: none;
+}
+.menu-list i {
+  font-size: 3rem;
+
+  color: red;
+}
+@media screen and (max-width: 480px) {
+  .header-bottom-container div {
+    height: auto;
+  }
+  .header-bottom-container {
+    height: auto;
+  }
+  .header-bottom-infor {
+    flex-direction: column;
+  }
+  .menu-list button {
+    display: block;
+  }
+  .header-top-container {
+    display: none;
+  }
+  .home-menu {
+    display: none;
+  }
+}
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 600px) {
+  .header-bottom-container div {
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  .header-bottom-container {
+    height: auto;
+  }
+  .header-bottom-infor {
+    flex-direction: column;
+  }
+  .menu-list button {
+    display: block;
+  }
+  .header-top-container {
+    display: none;
+  }
+  .home-menu {
+    display: none;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+  }
+}
+
+/* ----------=Main-content=------------------- */
+/* Home-slide-area */
+.home-slide-area {
+  max-width: 100%;
+  height: 600px;
+  /* background-image: url(../images/banner.avif);
+  background-repeat: no-repeat;
+  background-size: contain; */
+}
+.home-slide-area img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Product area */
+.product-range {
+  margin-top: 100px;
+  background-color: aqua;
+  height: auto;
+  box-sizing: border-box;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(228, 14, 14, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+.product-range-item {
+  display: block;
+  max-width: 368px;
+  min-width: 368px;
+  width: 30%;
+
+  margin: 10px;
+}
+.product-range-item img {
+  top: 0px;
+  width: 100%;
+  height: 400px;
+}
+.product-range-introdution {
+  width: 100%;
+  text-align: center;
+}
+.product-range-introdution h2 {
+  margin-bottom: 0px;
+  background-color: #ffffff;
+  color: rgb(34, 25, 25);
+  font-size: 5rem;
+  padding-bottom: 0px;
+  border-bottom: 5px solid red;
+}

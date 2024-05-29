@@ -1,0 +1,84 @@
+extends ../../layout/default.pug
+include ../../mixins/product_item.pug
+include ../../mixins/header_product.pug
+include ../../mixins/pagination.pug
+
+
+block main
+  .headerListProduct
+    +product_title(listRoute)
+  .detailProduct-Wrapper
+    .detailProduct.detailProduct-header
+      .detailProduct-header-left
+        .img-display
+          .img-showcase
+            img(src=`${listproduct.images[0]}` alt='' srcset='')
+            img(src=`${listproduct.images[1]}`  alt='' srcset='')
+            img(src=`${listproduct.images[2]}`  alt='' srcset='')
+        .img-select
+          .img-item
+            a(href='#' data-id='1')
+              img(src=`${listproduct.images[0]}` alt='' srcset='')
+          .img-item
+            a(href='#' data-id='2')
+              img(src=`${listproduct.images[1]}`  alt='' srcset='')
+          .img-item
+            a(href='#' data-id='3')
+              img(src=`${listproduct.images[2]}`  alt='' srcset='')
+      // Card right
+      .detailProduct-header-right
+        h2.product-title-detail #{listproduct.title}
+        a.product-link(href='#') Visit nike store
+        .product-rating
+          i.fas.fa-star
+          i.fas.fa-star
+          i.fas.fa-star
+          i.fas.fa-star
+          i.fas.fa-star-half-alt
+          span 4.7
+        if listproduct.discountPercentage == 0
+          .product-price
+              p.price-product Price:
+        else 
+          .product-price
+            p.last-price Old Price: 
+              span #{listproduct.price} VND 
+            p.new-price New Price:
+              span #{listproduct.priceNew} VND
+        .product-detail
+          h2 about this product:
+          p #{listproduct.description}
+            
+          ul
+            li Color:
+            li Brand:  #{listproduct.brand}
+            li Category:  #{listproduct.category}
+            li Shipping Area
+        .product-size 
+          p Size:
+          for item in listproduct.size
+            .size-item(stock =`${item.stock}`) #{item.Value}
+        .product-stock
+          p 
+
+          
+
+
+        .purchase-info
+          .purchase-quantity
+            span SL:
+            input(type='number' min='1' value='1')
+          button.btn.btn-primary(type='button')
+            | Add to Card
+            i.fas.fa-cart-arrow-down
+    .detailProduct.detailProduct-center
+        h2 Sản phẩm liên quan
+        section.listProducts_SPLQ
+          nav.nav__box__SPLQ
+            each item in product
+              +product_item2(item.thumbnail,item.title,item.price,item.priceNew,item.discountPercentage,item._id)
+    .detailProduct.detailProduct-bottom
+  
+        
+
+
