@@ -1,0 +1,42 @@
+
+mixin order_infor()
+
+    .container-fluid.order-container
+        section.inner-title-order.row
+            .col-12
+                h2 Danh Sách Đơn Đặt Hàng
+        .row.searchAndStatus
+            .col-md-4
+                form.form-group.navbar.navbar_search.form_search 
+                    lable Tìm kiếm
+                    input(type="text" value=keyword name="keyword" class="form-control",id="seach" placeholder="Bạn tìm kiếm gì" aria-label="Recipient's username" aria-describedby="button-addon2")
+                    button(type='submit')
+                        i(class="fa-solid fa-magnifying-glass" )
+            .col-md-2
+                .form-group.navbar
+                    lable Trạng Thái
+                    select.form-select.filterSearchProduct#comboboxChangeStatus(aria-label='Default select example')
+                                    //- each item in listOption
+                                    //-     if item.class=="active"
+                                    //-         option(value=item.value,selected) #{item.name}
+                                    //-     else 
+                                    //-         option(value=item.value) #{item.name}  
+            .col-5
+
+
+        nav.navbar.navbar_content
+            +detailProduct(detailProduct1)
+            table.table.align-middle.tableProduct
+                thead
+                    tr
+                        th(scope='col',style='width: 5%' first) STT
+                        th(scope='col',style='width: 10%') Image
+                        th(scope='col',style='width: 30%') Tiêu Đề
+                        th(scope='col',style='width: 10%') Brand
+                        th(cope='col',style='width: 10%') Trạng Thái 
+                        th(scope='col') Detail
+                        th(scope='col') Hoạt Động
+
+                tbody.table-group-divider
+                //- each item,index in products
+                //-     +product_infor_item(item,index)

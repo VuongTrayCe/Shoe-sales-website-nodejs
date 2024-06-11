@@ -1,0 +1,51 @@
+aside#sidebar
+  .h-100
+    .sidebar-logo
+      a(href='#') C&oacute;ddasdad
+    // Slidebar
+    ul.sidebar-nav
+      li.sidebar-header Admin Elements
+      li.sidebar-item
+        a.sidebar-link(href='/admin/dashboard')
+          i.fa-solid.fa-list
+          |  T&#x1ED5;ng Quan
+      li.sidebar-header S&#x1EA3;n ph&#x1EA9;m
+      // Item product
+      li.sidebar-item
+        a.sidebar-link.collapsed( data-bs-target='#products' data-bs-toggle='collapse' aria-expanded='false')
+          i.fa-brands.fa-product-hunt
+          |  S&#x1EA3;n Ph&#x1EA9;m
+        ul#products.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+          li.sidebar-item
+            a.sidebar-link(href='/admin/products') Page 1
+          li.sidebar-item
+            a.sidebar-link(href='') Page 2
+      // Item order
+      li.sidebar-header Đơn Hàng
+      li.sidebar-item
+        a.sidebar-link.collapsed(href='' data-bs-target='#orders' data-bs-toggle='collapse' aria-expanded='false')
+          i.fa-solid.fa-receipt 
+          |
+          | Đơn Hàng
+        ul#orders.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+          li.sidebar-item
+            a.sidebar-link(href='/admin/orders') Đơn đặt hàng
+          li.sidebar-item
+            a.sidebar-link(href='') page2
+      // Item Customer
+      li.sidebar-header Kh&aacute;ch H&agrave;ng
+      li.sidebar-item
+        a.sidebar-link(href='/admin/customers' data-bs-target='#customer'  aria-expanded='false')
+          i.fa-solid.fa-person-military-pointing
+          |  Khách hàng
+      // ----Setup
+      li.sidebar-header C&agrave;i &Dstrok;&#x1EB7;t
+      li.sidebar-item
+        a.sidebar-link.collapsed(href='' data-bs-target='#setup' data-bs-toggle='collapse' aria-expanded='false')
+          i.fa-solid.fa-gear
+          |  Kh&aacute;ch H&agrave;ng
+        ul#setup.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+          li.sidebar-item
+            a.sidebar-link(href='') Page 1
+          li.sidebar-item
+            a.sidebar-link(href='') Page 2

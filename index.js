@@ -1,7 +1,8 @@
 const express = require("express");
 const route = require("./routes/client/index.route");
+const routeAdmin = require("./routes/admin/index.route");
 // const route = require("./routes/client/index.route");
-// const database = require("./config/database");
+const database = require("./config/database");
 var methodOverride = require("method-override");
 // var flash = require("express-flash");
 var cookieParser = require("cookie-parser");
@@ -20,14 +21,17 @@ app.use(methodOverride("_method"));
 
 // const routeAdmin = require("./routes/admin/index.route");
 
-// database.connect();
+database.connect();
 // app.use(cookieParser("keyboard cat"));
 // app.use(session({ cookie: { maxAge: 60000 } }));
 // app.use(flash());
 app.set("views", "./views");
 app.set("view engine", "pug");
 app.use(express.static("public"));
+// app.use(express.static("./"));
+
 route(app);
+routeAdmin(app);
 // routeAdmin(app);
 
 app.listen(port, () => {});
