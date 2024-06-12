@@ -15,6 +15,16 @@ body {
 html {
   font-size: 10px;
 }
+.bg {
+  background-color: white;
+}
+.mg-5 {
+  margin: 10px;
+}
+.pd-none {
+  padding: 0px;
+}
+
 /* --------------------------------Admin------------------------ */
 /* ++++++++++++++++++++++++++++++side-bar+++++++++++++++++++ */
 button {
@@ -92,8 +102,15 @@ a.sidebar-link {
   transition: all 0.2s ease-out;
 }
 
-/*  */
-
+/* ++++++++++++++++++++++++++Product-Page+++++++++++++++++++++++++ */
+.preview-thumbnail {
+  width: 80px;
+  height: 80px;
+}
+.preview-thumbnail img {
+  height: 100%;
+  width: 100%;
+}
 .wrapper {
   align-items: stretch;
   display: flex;
@@ -192,6 +209,9 @@ a.sidebar-link {
   width: 70px;
   height: 70px;
 }
+.tr-content {
+  height: 7rem;
+}
 th {
   text-align: center;
   font-size: 1.5rem;
@@ -217,6 +237,16 @@ th[first] {
 .pagination {
   display: flex;
   justify-content: center;
+}
+.pagination_product {
+  height: 31px;
+}
+.pagination a {
+  color: black;
+  font-weight: bold;
+}
+.active a {
+  background-color: black !important;
 }
 /* +++++++++++++++++++++++++++++comfirm++++++++++++++++++++++++= */
 #confirmDialog {
@@ -266,6 +296,28 @@ th[first] {
   padding-right: 0px;
 }
 .inner-title-order {
-  background-color: white;
   margin: 0px;
+}
+/* order detail */
+.titel-order-detail {
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+.row-detail-order {
+  background: white;
+  padding-bottom: 20px;
+}
+.infor-item-order {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+.infor-item-order span {
+  font-size: 1.5rem;
+  color: rgb(92, 121, 97);
+}
+.infor-item-status {
+  font-weight: bold;
+}
+.infor-item-date {
+  color: blue !important;
 }

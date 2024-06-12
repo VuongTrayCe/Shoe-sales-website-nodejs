@@ -4,6 +4,7 @@ const routeAdmin = require("./routes/admin/index.route");
 // const route = require("./routes/client/index.route");
 const database = require("./config/database");
 var methodOverride = require("method-override");
+const path = require("path");
 // var flash = require("express-flash");
 var cookieParser = require("cookie-parser");
 // var session = require("express-session");
@@ -28,6 +29,8 @@ database.connect();
 app.set("views", "./views");
 app.set("view engine", "pug");
 app.use(express.static("public"));
+app.use("/build", express.static(path.join(__dirname, "build")));
+
 // app.use(express.static("./"));
 
 route(app);

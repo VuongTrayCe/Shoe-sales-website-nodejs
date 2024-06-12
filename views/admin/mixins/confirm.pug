@@ -1,6 +1,7 @@
-mixin  confirm()
+mixin  confirm(str)
     #confirmDialog.hidden
         .dialog-content
-            p Bạn có muốn xóa không ?
+            p #{str} ?
             button#confirmBtn Yes
             button#cancelBtn No
+

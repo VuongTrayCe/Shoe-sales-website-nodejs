@@ -1,11 +1,11 @@
 const product = require("../../model/product.model");
-const listOption1 = require("../../helpers/filterStatus");
+const status1 = require("../../helpers/filterStatus");
 const getPagination = require("../../helpers/getPagination");
 // const product = require("../../models/product.model");
 
 // [GET] /admin/products
 module.exports.index = async (req, res) => {
-  const listOption = listOption1(req.query);
+  const listOption = status1.statusProduct(req.query);
   let find = {
     delete: "false",
   };
@@ -61,50 +61,96 @@ module.exports.delete = async (req, res) => {
   res.redirect("back");
 };
 // [PUT] /admin/products/add
-module.exports.add = async (req, res) => {
-  let sizearr = [];
-  const size = req.body.size;
-  const stock = req.body.stock;
-  var i = 0;
-  if (Array.isArray(size)) {
-    size.forEach((element) => {
-      sizearr.push({ Value: element, stock: stock[i], _id: null });
-      i = i + 1;
-    });
-  } else {
-    sizearr.push({ Value: size, stock: stock, _id: null });
-  }
-  let thumbnail = req.body.thumbnail;
-  if (thumbnail == "") {
-    thumbnail = null;
-  }
-  let image = req.body.images;
-  if (image == "") {
-    image = null;
-  }
+// module.exports.add = async (req, res) => {
+//   let sizearr = [];
 
-  let newproduct = {
-    title: req.body.title,
-    description: req.body.description,
-    price: parseInt(req.body.price),
-    stock: 100,
-    brand: req.body.brand,
-    category: req.body.category,
-    thumbnail: thumbnail,
-    images: image,
-    size: sizearr,
-    status: req.body.status,
-  };
-  const newProductModel = new product(newproduct);
-  await newProductModel.save((err) => {
-    if (err) {
-      console.error(err);
-      return;
+//   const size = req.body.size;
+//   const stock = req.body.stock;
+//   var i = 0;
+//   if (Array.isArray(size)) {
+//     size.forEach((element) => {
+//       sizearr.push({ Value: element, stock: stock[i], _id: null });
+//       i = i + 1;
+//     });
+//   } else {
+//     sizearr.push({ Value: size, stock: stock, _id: null });
+//   }
+//   console.log(req.file);
+//   let thumbnail = req.file.thumbnail;
+//   if (thumbnail == "") {
+//     thumbnail = null;
+//   }
+//   let image = req.body.images;
+//   if (image == "") {
+//     image = null;
+//   }
+
+//   let newproduct = {
+//     title: req.body.title,
+//     description: req.body.description,
+//     price: parseInt(req.body.price),
+//     stock: 100,
+//     brand: req.body.brand,
+//     category: req.body.category,
+//     thumbnail: thumbnail,
+//     images: image,
+//     size: sizearr,
+//     status: req.body.status,
+//   };
+//   const newProductModel = new product(newproduct);
+//   await newProductModel.save((err) => {
+//     if (err) {
+//       console.error(err);
+//       return;
+//     }
+//     console.log("Product added successfully!");
+//   });
+// };
+module.exports.add = async (req, res) => {
+  try {
+    let sizearr = [];
+
+    const size = req.body.size;
+    const stock = req.body.stock;
+    var i = 0;
+    if (Array.isArray(size)) {
+      size.forEach((element) => {
+        sizearr.push({ Value: element, stock: stock[i], _id: null });
+        i = i + 1;
+      });
+    } else {
+      sizearr.push({ Value: size, stock: stock, _id: null });
     }
+
+    console.log(req.file);
+    let thumbnail = req.file ? "/images/" + req.file.filename : null;
+    if (thumbnail == "") {
+      thumbnail = null;
+    }
+    let image = req.body.images;
+    if (image == "") {
+      image = null;
+    }
+
+    let newproduct = {
+      title: req.body.title,
+      description: req.body.description,
+      price: parseInt(req.body.price),
+      stock: 100,
+      brand: req.body.brand,
+      category: req.body.category,
+      thumbnail: thumbnail,
+      images: image,
+      size: sizearr,
+      status: req.body.status,
+    };
+
+    const newProductModel = new product(newproduct);
+    await newProductModel.save();
     console.log("Product added successfully!");
-  });
-  // res.render("admin/pages/products/addProduct", {
-  //   title: "Add Product",
-  //   message: "This is Home!",
-  // });
+    res.redirect("back");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Error adding product", error: err });
+  }
 };

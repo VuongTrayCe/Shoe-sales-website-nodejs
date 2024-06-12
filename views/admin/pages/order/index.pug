@@ -8,9 +8,15 @@ block main
     include ../../partials/sider.pug
     .main
       include ../../partials/header.pug
-      +order_infor()
-      +pagination(pagination)
+      +order_infor(orders,pagination)
+      form(
+        action="",
+        method="POST",
+        id = "form_delete_order",
+        data_path_delete =`/admin/orders/delete`
+        )
 
+  script(type="module" src="/js/scripts-admin.js")
 
 
 

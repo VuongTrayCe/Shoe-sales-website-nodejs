@@ -30,8 +30,8 @@ aside#sidebar
         ul#orders.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
           li.sidebar-item
             a.sidebar-link(href='/admin/orders') Đơn đặt hàng
-          li.sidebar-item
-            a.sidebar-link(href='') page2
+          li.sidebar-item 
+            a.sidebar-link(href='/admin/orders/canceled-order') Đơn hàng hủy
       // Item Customer
       li.sidebar-header Kh&aacute;ch H&agrave;ng
       li.sidebar-item
@@ -43,7 +43,8 @@ aside#sidebar
       li.sidebar-item
         a.sidebar-link.collapsed(href='' data-bs-target='#setup' data-bs-toggle='collapse' aria-expanded='false')
           i.fa-solid.fa-gear
-          |  Kh&aacute;ch H&agrave;ng
+          |  
+          | Account
         ul#setup.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
           li.sidebar-item
             a.sidebar-link(href='') Page 1

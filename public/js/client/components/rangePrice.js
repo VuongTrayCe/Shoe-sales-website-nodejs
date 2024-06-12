@@ -1,5 +1,3 @@
-// ------------------------------Client---------------------------------
-
 window.onload = function () {
   slideMin();
   slideMax();

@@ -1,3 +1,5 @@
+import "../components/rangePrice";
+//++++++++++++++++++++++Product-Detail++++++++++++++++++++++++++++=
 const img = document.querySelectorAll(".img-select a");
 const imgBtn = [...img];
 console.log(imgBtn);
