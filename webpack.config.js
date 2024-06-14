@@ -5,6 +5,7 @@ module.exports = {
     main: "./public/js/admin/main.admin.js",
     product: "./public/js/admin/pages/products/product.admin.js",
     product_add: "./public/js/admin/pages/products/product.add.admin.js",
+    product_client: "./public/js/client/pages/product.client.js",
 
     order: "./public/js/admin/pages/orders/order.admin.js",
   },

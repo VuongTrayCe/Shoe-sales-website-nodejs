@@ -37,6 +37,7 @@ module.exports.index = async (req, res) => {
       (product) => product._id == req.query.idDetail
     );
   }
+  console.log(listproduct);
   // req.flash("info", "Welcome");
 
   res.render("admin/pages/products/index", {
