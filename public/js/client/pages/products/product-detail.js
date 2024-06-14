@@ -1,9 +1,7 @@
-import "../components/rangePrice.js";
-//++++++++++++++++++++++Product-Detail++++++++++++++++++++++++++++=
 const img = document.querySelectorAll(".img-select a");
 const imgBtn = [...img];
 console.log(imgBtn);
-// let eleSelected = imgBtn[0].parentNode;
+let eleSelected = imgBtn[0].parentNode;
 eleSelected.style.border = "4px solid red";
 
 let imgId = 1;

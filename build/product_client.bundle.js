@@ -9,6 +9,16 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./public/js/client/common/pagination.client.js":
+/*!******************************************************!*\
+  !*** ./public/js/client/common/pagination.client.js ***!
+  \******************************************************/
+/***/ (() => {
+
+eval("// -----------------------------------Admin------------------------------\n// Pagination\nvar page = document.querySelectorAll(\".page-link\");\npage.forEach(function (element) {\n  element.addEventListener(\"click\", function (e) {\n    var url2 = new URL(document.location.href);\n    var index = element.getAttribute(\"value\");\n    if (index) {\n      url2.searchParams.set(\"page\", index);\n      document.location.href = url2.href;\n    }\n  });\n});\n\n//# sourceURL=webpack://shoe-sales-website-nodejs/./public/js/client/common/pagination.client.js?");
+
+/***/ }),
+
 /***/ "./public/js/client/components/rangePrice.js":
 /*!***************************************************!*\
   !*** ./public/js/client/components/rangePrice.js ***!
@@ -19,14 +29,14 @@ eval("window.onload = function () {\n  slideMin();\n  slideMax();\n};\nvar minVa
 
 /***/ }),
 
-/***/ "./public/js/client/pages/product.client.js":
-/*!**************************************************!*\
-  !*** ./public/js/client/pages/product.client.js ***!
-  \**************************************************/
+/***/ "./public/js/client/pages/products/product.client.js":
+/*!***********************************************************!*\
+  !*** ./public/js/client/pages/products/product.client.js ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_rangePrice_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/rangePrice.js */ \"./public/js/client/components/rangePrice.js\");\n/* harmony import */ var _components_rangePrice_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_rangePrice_js__WEBPACK_IMPORTED_MODULE_0__);\nfunction _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }\nfunction _nonIterableSpread() { throw new TypeError(\"Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); }\nfunction _unsupportedIterableToArray(r, a) { if (r) { if (\"string\" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return \"Object\" === t && r.constructor && (t = r.constructor.name), \"Map\" === t || \"Set\" === t ? Array.from(r) : \"Arguments\" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }\nfunction _iterableToArray(r) { if (\"undefined\" != typeof Symbol && null != r[Symbol.iterator] || null != r[\"@@iterator\"]) return Array.from(r); }\nfunction _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }\nfunction _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }\n\n//++++++++++++++++++++++Product-Detail++++++++++++++++++++++++++++=\nvar img = document.querySelectorAll(\".img-select a\");\nvar imgBtn = _toConsumableArray(img);\nconsole.log(imgBtn);\n// let eleSelected = imgBtn[0].parentNode;\neleSelected.style.border = \"4px solid red\";\nvar imgId = 1;\nimg.forEach(function (item) {\n  item.addEventListener(\"click\", function (e) {\n    e.preventDefault();\n    eleSelected.style.border = \"4px solid rgb(170, 157, 157)\";\n    imgId = item.getAttribute(\"data-id\");\n    eleSelected = item.parentNode;\n    eleSelected.style.border = \"4px solid red\";\n    slideImage();\n  });\n});\nfunction slideImage() {\n  var displayWidth = document.querySelector(\".img-showcase:first-child\").clientWidth;\n  console.log(displayWidth);\n  document.querySelector(\".img-showcase\").style.transform = \"translateX(\".concat(-(imgId - 1) * displayWidth, \"px)\");\n}\n\n// seclect size\nvar btnSize = document.querySelectorAll(\".size-item\");\nvar sizeSelected = btnSize[0];\nsizeSelected.style.border = \"3px solid red\";\nvar stock = document.querySelector(\".product-stock p\");\nstock.innerHTML = \"Stock: \" + sizeSelected.getAttribute(\"stock\");\nbtnSize.forEach(function (item) {\n  item.addEventListener(\"click\", function (e) {\n    e.preventDefault();\n    if (sizeSelected) {\n      sizeSelected.style.border = \"3px solid rgb(36, 34, 34)\";\n    }\n    sizeSelected = item;\n    sizeSelected.style.border = \"3px solid red\";\n    stock.innerHTML = \"Stock: \" + sizeSelected.getAttribute(\"stock\");\n  });\n});\n\n//# sourceURL=webpack://shoe-sales-website-nodejs/./public/js/client/pages/product.client.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_rangePrice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/rangePrice */ \"./public/js/client/components/rangePrice.js\");\n/* harmony import */ var _components_rangePrice__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_rangePrice__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _common_pagination_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/pagination.client */ \"./public/js/client/common/pagination.client.js\");\n/* harmony import */ var _common_pagination_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_common_pagination_client__WEBPACK_IMPORTED_MODULE_1__);\n\n\n//++++++++++++++++++++++Product-Detail++++++++++++++++++++++++++++=\nvar btn2 = document.querySelectorAll(\".product-img\");\nvar siz4;\nbtn2.forEach(function (element) {\n  element.addEventListener(\"click\", function (e) {\n    var url = new URL(document.location.href);\n    var newPath = element.getAttribute(\"path\");\n\n    // const newPath = url.href + element.getAttribute(\"path\");\n    // form.action = newPath;\n\n    // form.submit();\n    // url.searchParams.set(\"range\", element.value);\n    document.location.href = newPath;\n  });\n});\n\n//# sourceURL=webpack://shoe-sales-website-nodejs/./public/js/client/pages/products/product.client.js?");
 
 /***/ })
 
@@ -102,7 +112,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./public/js/client/pages/product.client.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./public/js/client/pages/products/product.client.js");
 /******/ 	
 /******/ })()
 ;
