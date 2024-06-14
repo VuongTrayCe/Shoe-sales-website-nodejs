@@ -34,10 +34,10 @@ mixin order_infor(orders,pagination)
                 thead
                     tr
                         th(scope='col',style='width: 5%' first) STT
-                        th(scope='col',style='width: 10%') Id
-                        th(scope='col',style='width: 10%') IdCustomer
-                        th(scope='col',style='width: 20%') Tên Khách Hàng
-                        th(scope='col',style='width: 10%') Tổng SL
+                        th(scope='col',style='width: 20%') Customer
+                        th(scope='col',style='width: 15%') Order date
+                        th(scope='col',style='width: 10%') Pay method
+
                         th(scope='col',style='width: 10%') Tổng Tiền
                         th(cope='col',style='width: 10%') Status
                         th(scope='col') Detail
@@ -52,10 +52,18 @@ mixin order_infor(orders,pagination)
 mixin order_infor_item(item,index) 
     tr.text-start.tr-content
                     th(class="stt_tableProduct",scope='row' first) #{index+1}
-                    td(class="_tableProduct") #{item._id}
-                    td(class="_tableProduct") #{item.customerID}
-                    td(class="_tableProduct") #{item.nameCustomer}
-                    td(class="_tableProduct") #{item.quantityTotal}
+                    td(class="_tableProduct")
+                        div
+                            .row
+                                .col-3
+                                    img(class='avatar-customers' src="/images/avatar.jpg", alt="", srcset="")
+                                .col-7
+                                    div.d-flex.flex-column.name-id-customers
+                                        p1 #{item.nameCustomer}
+                                        p1 KH0001
+                    td(class="_tableProduct") #{item.date}
+                    td(class="_tableProduct") #{item.payMethod}
+
                     td(class="_tableProduct") #{item.priceTotal}
                     td(class="text-wrap" status =item.status, style=`${item.status==="Đã Xác Nhận"? "color:var(--bs-success)":"color:var(--bs-danger)"}`) #{item.status}
                     td

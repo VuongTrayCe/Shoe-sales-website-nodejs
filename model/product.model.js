@@ -62,6 +62,13 @@ const productSchema = new mongoose.Schema(
       type: String,
       default: "false",
     },
+    gender: {
+      type: String,
+      default: "unisex",
+    },
+    updateAt: {
+      type: Date,
+    },
   },
   { versionKey: false }
 );

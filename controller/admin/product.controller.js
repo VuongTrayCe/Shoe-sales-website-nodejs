@@ -1,6 +1,8 @@
-const product = require("../../model/product.model");
 const status1 = require("../../helpers/filterStatus");
 const getPagination = require("../../helpers/getPagination");
+const product = require("../../model/product.model");
+const { ObjectID } = require("mongodb");
+
 // const product = require("../../models/product.model");
 
 // [GET] /admin/products
@@ -153,4 +155,63 @@ module.exports.add = async (req, res) => {
     console.error(err);
     res.status(500).send({ message: "Error adding product", error: err });
   }
+};
+// [GET] /admin/products
+module.exports.edit = async (req, res) => {
+  let condition = {};
+  if (req.params.id) {
+    condition._id = req.params.id;
+  }
+  const productItem = await product.findOne(condition);
+  res.render("admin/pages/products/product-edit", {
+    productItem: productItem,
+  });
+};
+module.exports.update = async (req, res) => {
+  try {
+    console.log(req.body);
+    let sizearr = [];
+
+    const size = req.body.size;
+    const stock = req.body.stock;
+    var i = 0;
+    if (Array.isArray(size)) {
+      size.forEach((element) => {
+        sizearr.push({ Value: element, stock: stock[i], _id: null });
+        i = i + 1;
+      });
+    } else {
+      sizearr.push({ Value: size, stock: stock, _id: null });
+    }
+    let thumbnail = req.file
+      ? "/images/" + req.file.filename
+      : req.body.thumbnail;
+    let image = req.body.images;
+    if (image == "") {
+      image = null;
+    }
+
+    let newproduct = {
+      title: req.body.title,
+      description: req.body.description,
+      price: parseInt(req.body.price),
+      stock: 100,
+      brand: req.body.brand,
+      category: req.body.category,
+      thumbnail: thumbnail,
+      images: image,
+      size: sizearr,
+      status: req.body.status,
+    };
+
+    await product.updateOne({ _id: req.params.id }, { $set: newproduct });
+    console.log("Product added successfully!");
+    res.redirect("back");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ message: "Error adding product", error: err });
+  }
+};
+module.exports.addNewProduct = async (req, res) => {
+  res.render("admin/pages/products/product-add"), {};
 };

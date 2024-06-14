@@ -6,7 +6,7 @@ module.exports = () => {
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now();
-      cb(null, file.fieldname + "-" + file.originalname);
+      cb(null, file.fieldname + "-" + uniqueSuffix);
     },
   });
   return storage;

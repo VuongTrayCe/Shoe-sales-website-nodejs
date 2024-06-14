@@ -10,5 +10,8 @@ router.delete("/delete/:id", controller.delete);
 
 // router.get("/detail/:id", controller.detail);
 router.patch("/add", upload.single("thumbnail"), controller.add);
+router.get("/edit/:id", controller.edit);
+router.patch("/update/:id", upload.single("thumbnail"), controller.update);
+router.get("/add-new-product", controller.addNewProduct);
 
 module.exports = router;
