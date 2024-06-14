@@ -112,7 +112,6 @@ module.exports.delete = async (req, res) => {
 module.exports.add = async (req, res) => {
   try {
     let sizearr = [];
-
     const size = req.body.size;
     const stock = req.body.stock;
     var i = 0;
@@ -124,14 +123,16 @@ module.exports.add = async (req, res) => {
     } else {
       sizearr.push({ Value: size, stock: stock, _id: null });
     }
-
-    console.log(req.file);
-    let thumbnail = req.file ? "/images/" + req.file.filename : null;
-    if (thumbnail == "") {
-      thumbnail = null;
-    }
-    let image = req.body.images;
-    if (image == "") {
+    let image = [];
+    let thumbnail;
+    if (req.files.length > 1) {
+      thumbnail = "/images/" + req.files[0].filename;
+      req.files.splice(0, 1);
+      for (let index = 0; index < req.files.length; index++) {
+        image.push("/images/" + req.files[index].filename);
+      }
+    } else {
+      thumbnail = "/images/" + req.files[0].filename;
       image = null;
     }
 
@@ -139,6 +140,7 @@ module.exports.add = async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       price: parseInt(req.body.price),
+      discountPercentage: parseInt(req.body.discountPercentage),
       stock: 100,
       brand: req.body.brand,
       category: req.body.category,
@@ -146,8 +148,9 @@ module.exports.add = async (req, res) => {
       images: image,
       size: sizearr,
       status: req.body.status,
+      gender: req.body.gender,
+      updateAt: req.body.updateAt,
     };
-
     const newProductModel = new product(newproduct);
     await newProductModel.save();
     console.log("Product added successfully!");

@@ -9,7 +9,7 @@ router.patch("/change-status/:status/:id", controller.changeStatus);
 router.delete("/delete/:id", controller.delete);
 
 // router.get("/detail/:id", controller.detail);
-router.patch("/add", upload.single("thumbnail"), controller.add);
+router.patch("/add", upload.array("thumbnail"), controller.add);
 router.get("/edit/:id", controller.edit);
 router.patch("/update/:id", upload.single("thumbnail"), controller.update);
 router.get("/add-new-product", controller.addNewProduct);

@@ -1,3 +1,5 @@
+import { hasLetters } from "../../../../validation/hasLetters"; // Assuming validation.js is in the same directory
+
 const publishDateInput = document.getElementById("updateAt");
 const currentDate = new Date();
 const formattedDate = currentDate.toISOString().split("T")[0]; // YYYY-MM-DD
@@ -12,6 +14,36 @@ if (btnProductThumbnail) {
     preview_thumbnail.src = URL.createObjectURL(file);
   });
 }
+function createThumbnail(src, alt, srcset) {
+  const thumbnailWrapper = document.createElement("div");
+  thumbnailWrapper.classList.add("col-4"); // Add col4 class for four-column layout
+
+  const thumbnailElement = document.createElement("img");
+  thumbnailElement.classList.add("preview-thumbnail-more", "preview-thumbnail");
+  thumbnailElement.setAttribute("src", URL.createObjectURL(src));
+  thumbnailElement.setAttribute("alt", alt);
+
+  if (srcset) {
+    thumbnailElement.setAttribute("srcset", srcset);
+  }
+
+  thumbnailWrapper.appendChild(thumbnailElement);
+  return thumbnailWrapper;
+}
+
+const btnMoreThumbnail = document.querySelector(".add-more-thumbnail");
+btnMoreThumbnail.addEventListener("input", (e) => {
+  const file = btnMoreThumbnail.files;
+  const pa = document.querySelector(".form-add-more-thumbnail");
+
+  for (let index = 0; index < file.length; index++) {
+    const element = file[index];
+    const thumbnail1 = createThumbnail(element);
+    pa.appendChild(thumbnail1);
+  }
+
+  // Example usage:
+});
 if (btnAddSizeProduct)
   btnAddSizeProduct.addEventListener("click", function () {
     const product_size = document.querySelector("#product-size");
