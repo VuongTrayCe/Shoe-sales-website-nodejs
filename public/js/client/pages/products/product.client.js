@@ -1,7 +1,7 @@
 import "../../components/rangePrice";
 import "../../common/pagination.client";
 //++++++++++++++++++++++Product-Detail++++++++++++++++++++++++++++=
-const btn2 = document.querySelectorAll(".product-img");
+const btn2 = document.querySelectorAll(".cart-product__img");
 var siz4;
 btn2.forEach((element) => {
   element.addEventListener("click", (e) => {

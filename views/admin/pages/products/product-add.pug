@@ -8,7 +8,7 @@ block main
       .container-fluid.pd-none
         form.wrapper-add-product.mg-5.pd-none(method='POST' action=`/admin/products/add?_method=PATCH`,enctype="multipart/form-data")
             section.add-product-header.bg.d-flex
-                div 
+                div
                     h2 Add New Product
                 button.btn.btn-primary.save.btnSaveFormAddProduct(type='submit') Create
 
@@ -135,16 +135,16 @@ block main
                                     .row
                                         .col-md-12
                                             label Add More Thumbnails
-                                        .col-md-10
-                                            input.form-control(type='file', name="images")
-                                        .col-md-2
-                                            button.btn.btn-success.btn-block.add-more-thumbnail(type='button') Add
+                                        .col-md-12
+                                            input.form-control.add-more-thumbnail(type='file',  name='thumbnail', multiple)
                                     .row
-                                        .col-md-4
+                                        .col-md-12
                                             .form-group
                                                 label(for='product_thumbnail') More thumbnails
-                                                .preview-thumbnail-more.preview-thumbnail
-                                                    img(src="", alt="", srcset="")
+                                                .row.form-add-more-thumbnail
+                                                    //- .col-4
+                                                    //-     .preview-thumbnail-more.preview-thumbnail
+                                                    //-         img(src="", alt="", srcset="")
       //-------------product edit----------------
     
 
