@@ -1,4 +1,4 @@
-const img = document.querySelectorAll(".img__select a");
+const img = document.querySelectorAll(".img-select a");
 const imgBtn = [...img];
 console.log(imgBtn);
 let eleSelected = imgBtn[0].parentNode;
@@ -18,10 +18,10 @@ img.forEach((item) => {
 });
 function slideImage() {
   const displayWidth = document.querySelector(
-    ".img__showcase:first-child"
+    ".img-showcase:first-child"
   ).clientWidth;
   console.log(displayWidth);
-  document.querySelector(".img__showcase").style.transform = `translateX(${
+  document.querySelector(".img-showcase").style.transform = `translateX(${
     -(imgId - 1) * displayWidth
   }px)`;
 }

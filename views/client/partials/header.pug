@@ -1,49 +1,49 @@
 header.main-header-wrapper
-    nav.header-top.container-fluid.align-items-center
+    nav.header-top-container.container-fluid.align-items-center
         .row
             .col-12.d-flex.flex-row.justify-content-between.align-items-center
-                .header-top__address
+                .header-top-address
                     span 
                         i(class="fa-solid fa-location-dot")
                     | ------Vinh Xuan, Phu Vang, TT Hue------
                 .header-top-infor.d-flex
-                    .header-top-infor__item
+                    .header-top-infor-item
                         span
                             i.fa-solid.fa-phone
                         span +00 123 456 789
-                    .header-top-infor__item
+                    .header-top-infor-item
                         span
                             i.fa-solid.fa-envelope
                         span tranquocvuong@gmail.com
-                    .header-top-infor__item
+                    .header-top-infor-item
                         span
                             i.fa-solid.fa-user
                         span +Account
 
-    nav.header-bottom.container-fluid.align-items-center
+    nav.header-bottom-container.container-fluid.align-items-center
         .row
             .col-12.header-bottom-infor.d-flex.justify-content-around
-                .header-bottom-infor__item.d-flex.justify-content-center
-                    img.header-bottom__logo.align-content-center(src='/images/logo2.png' alt='' srcset='')
-                nav.header-bottom-infor__item.home-menu
-                    ul.align-items-center.nav__list
-                        li.nav__item
+                .header-bottom-infor-item.d-flex.justify-content-center
+                    img.logo-home.align-content-center(src='/images/logo2.png' alt='' srcset='')
+                .header-bottom-infor-item.home-menu
+                    ul.align-items-center
+                        li.header-bottom-menu.header-bottom-menu-center
                             a(href='/')  Home 
-                        li.nav__item
+                        li.header-bottom-menu.header-bottom-menu-center
                             a(href='/products') Products
-                        li.nav__item
+                        li.header-bottom-menu.header-bottom-menu-center
                             a(href='#') About us
-                        li.nav__item
+                        li.header-bottom-menu.header-bottom-menu-center
                             a(href='#') Contact
-                nav.header-bottom-infor__item.home-cart
-                    ul.align-items-center.d-flex.justify-content-center.nav__list
-                        li.menu-search.nav__item
+                .header-bottom-infor-item.home-cart
+                    ul.align-items-center.d-flex.justify-content-center
+                        li.header-bottom-menu.menu-search
                             input.input-search(type='text' placeholder='Bạn tìm kiếm gì?')
                             i.fa-solid.fa-magnifying-glass.btn-search
-                        li.menu-cart.nav__item
+                        li.header-bottom-menu.menu-cart
                             span
                             i.fa-solid.fa-cart-shopping
                             span 1
-                        li.menu-list.nav__item
+                        li.header-bottom-menu.menu-list
                             button
                                 i.fa-solid.fa-bars
