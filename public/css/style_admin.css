@@ -233,6 +233,8 @@ th {
   text-align: center;
   font-size: 1.5rem;
 }
+th:hover {
+}
 td {
   text-align: center;
   font-size: 1.2rem;
@@ -260,7 +262,14 @@ th[first] {
 .name-id-products p1:last-child {
   color: rgb(134, 126, 126);
 }
-
+.arrow {
+  transition: transform 0.3s ease;
+  padding-left: 5px;
+  display: none;
+}
+.arrow.down {
+  transform: rotate(180deg);
+}
 /* ++++++++++++++++ Add New Product++++++++++++ */
 
 .add-product-header {

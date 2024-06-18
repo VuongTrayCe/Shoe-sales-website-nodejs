@@ -5,26 +5,29 @@ include ../../mixins/pagination.pug
 
 
 block main_content
-  .headerListProduct
+  section.breadcrumb-product
     +product_title(listRoute)
-  .detailProduct-Wrapper.container
-    .detailProduct.detailProduct-header.row
-      .detailProduct-header-left.col-lg-6
-        .img-display
-          .img-showcase
-            img(src=`${listproduct.images[0]}` alt='' srcset='')
-            img(src=`${listproduct.images[1]}`  alt='' srcset='')
-            img(src=`${listproduct.images[2]}`  alt='' srcset='')
-        .img-select
-          .img-item
-            a(href='#' data-id='1')
-              img(src=`${listproduct.images[0]}` alt='' srcset='')
-          .img-item
-            a(href='#' data-id='2')
-              img(src=`${listproduct.images[1]}`  alt='' srcset='')
-          .img-item
-            a(href='#' data-id='3')
-              img(src=`${listproduct.images[2]}`  alt='' srcset='')
+  section.product-detail.container
+    .row
+      .img.col-lg-6
+        .img__display
+          .img__showcase
+            if listproduct.images[0]
+              each item in listproduct.images
+                img(src=`${item}` alt='' srcset='')
+            else 
+                img(src="" alt='' srcset='')
+        .img__select
+          each item,index in listproduct.images
+            .img-item
+              a(href='#' data-id=`${index+1}`)
+                img(src=`${item}` alt='' srcset='')
+          //- .img-item
+          //-   a(href='#' data-id='2')
+          //-     img(src=`${listproduct.images[1]}`  alt='' srcset='')
+          //- .img-item
+          //-   a(href='#' data-id='3')
+          //-     img(src=`${listproduct.images[2]}`  alt='' srcset='')
       // Card right
       .detailProduct-header-right.col-lg-5
         h2.product-title-detail #{listproduct.title}
@@ -74,7 +77,7 @@ block main_content
         h2 Sản phẩm liên quan
         section.listProducts_SPLQ
           nav.nav__box__SPLQ
-            each item in product
-              +product_item2(item.thumbnail,item.title,item.price,item.priceNew,item.discountPercentage,item._id)
+            //- each item in product
+              //- +product_item2(item.thumbnail,item.title,item.price,item.priceNew,item.discountPercentage,item._id)
     .detailProduct.detailProduct-bottom
   script(src="/build/product_client_detail.bundle.js")
