@@ -1,52 +1,54 @@
-aside#sidebar
-  .h-100
-    .sidebar-logo
-      a(href='#') C&oacute;ddasdad
+aside#sidebar.sidebar
+    .sidebar__logo
+      div 
+        a(href='#')
+          img(src='/images/avatar.jpg', alt="", srcset="")
+      p1 King Tran @2004
     // Slidebar
-    ul.sidebar-nav
-      li.sidebar-header Admin Elements
-      li.sidebar-item
+    ul.sidebar__nav
+      li.sidebar__header Admin Elements
+      li.sidebar__item
         a.sidebar-link(href='/admin/dashboard')
           i.fa-solid.fa-list
           |  T&#x1ED5;ng Quan
-      li.sidebar-header S&#x1EA3;n ph&#x1EA9;m
+      li.sidebar__header Products
       // Item product
-      li.sidebar-item
+      li.sidebar__item
         a.sidebar-link.collapsed( data-bs-target='#products' data-bs-toggle='collapse' aria-expanded='false')
           i.fa-brands.fa-product-hunt
-          |  S&#x1EA3;n Ph&#x1EA9;m
+          |  Products
         ul#products.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
-          li.sidebar-item
-            a.sidebar-link(href='/admin/products') Page 1
-          li.sidebar-item
-            a.sidebar-link(href='') Page 2
+          li.sidebar__item
+            a.sidebar-link(href='/admin/products') Product List
+          li.sidebar__item
+            a.sidebar-link(href='') Product categories
       // Item order
-      li.sidebar-header Đơn Hàng
-      li.sidebar-item
+      li.sidebar__header Orders
+      li.sidebar__item
         a.sidebar-link.collapsed(href='' data-bs-target='#orders' data-bs-toggle='collapse' aria-expanded='false')
           i.fa-solid.fa-receipt 
           |
-          | Đơn Hàng
+          | Orders
         ul#orders.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
-          li.sidebar-item
-            a.sidebar-link(href='/admin/orders') Đơn đặt hàng
-          li.sidebar-item 
+          li.sidebar__item
+            a.sidebar-link(href='/admin/orders') Order List
+          li.sidebar__item 
             a.sidebar-link(href='/admin/orders/canceled-order') Đơn hàng hủy
       // Item Customer
-      li.sidebar-header Kh&aacute;ch H&agrave;ng
-      li.sidebar-item
+      li.sidebar__header Kh&aacute;ch H&agrave;ng
+      li.sidebar__item
         a.sidebar-link(href='/admin/customers' data-bs-target='#customer'  aria-expanded='false')
           i.fa-solid.fa-person-military-pointing
           |  Khách hàng
       // ----Setup
-      li.sidebar-header C&agrave;i &Dstrok;&#x1EB7;t
-      li.sidebar-item
+      li.sidebar__header C&agrave;i &Dstrok;&#x1EB7;t
+      li.sidebar__item
         a.sidebar-link.collapsed(href='' data-bs-target='#setup' data-bs-toggle='collapse' aria-expanded='false')
           i.fa-solid.fa-gear
           |  
           | Account
         ul#setup.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
-          li.sidebar-item
+          li.sidebar__item
             a.sidebar-link(href='') Page 1
-          li.sidebar-item
+          li.sidebar__item
             a.sidebar-link(href='') Page 2
