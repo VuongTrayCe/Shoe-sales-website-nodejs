@@ -2,7 +2,13 @@
 // Add new Product
 import "../../common/pagination.admin";
 import { hasLetters } from "../../../../validation/hasLetters"; // Assuming validation.js is in the same directory
+document.addEventListener("DOMContentLoaded", function () {
+  const arrow = document.querySelector(".arrow");
 
+  arrow.addEventListener("click", function () {
+    arrow.classList.toggle("down");
+  });
+});
 const modalElement = document.getElementById("productModal");
 if (modalElement) {
   // const modalToggle = document.querySelector(".add_Product"); // Replace with your button ID
