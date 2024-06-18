@@ -30,6 +30,8 @@ function slideImage() {
 const btnSize = document.querySelectorAll(".size-item");
 let sizeSelected = btnSize[0];
 sizeSelected.style.border = "3px solid red";
+const size_input = document.querySelector("#size_input_detail");
+size_input.value = parseInt(sizeSelected.innerHTML);
 const stock = document.querySelector(".product-stock p");
 stock.innerHTML = "Stock: " + sizeSelected.getAttribute("stock");
 
@@ -43,5 +45,7 @@ btnSize.forEach((item) => {
     sizeSelected = item;
     sizeSelected.style.border = "3px solid red";
     stock.innerHTML = "Stock: " + sizeSelected.getAttribute("stock");
+    size_input.value = parseInt(sizeSelected.innerHTML);
+
   });
 });

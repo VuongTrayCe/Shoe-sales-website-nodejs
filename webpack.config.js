@@ -8,8 +8,8 @@ module.exports = {
     product_client: "./public/js/client/pages/products/product.client.js",
     product_client_detail:
       "./public/js/client/pages/products/product-detail.js",
-
     order: "./public/js/admin/pages/orders/order.admin.js",
+    cart: "./public/js/client/pages/cart.client.js"
   },
   output: {
     filename: "[name].bundle.js",
